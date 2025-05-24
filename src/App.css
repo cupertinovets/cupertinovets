@@ -527,6 +527,68 @@ body{
 }
 
 
+.analysisPageTop{
+  width: 65%;
+}
+
+.analysisPageSearch{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.analysisPageSearch input{
+  width: 64%;
+  background: transparent;
+  border: 2px #23538F solid;
+  border-radius: 20px;
+  height: 45px;
+  padding: 4px 20px;
+  font-size: 20px;
+}
+
+.analysisPageSearch button{
+  width: 26%;
+  background: #23538F;
+  border: 0;
+  border-radius: 20px;
+  color: white;
+  font-size: 32px;
+  font-weight: 400;
+}
+
+.analysisPageMain{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.analysisPageInf{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.analysisPageInf div{
+  display: flex;
+  justify-content: space-between;
+  width: 42%;
+  align-items: center;
+}
+
+.analysisPageLeft{
+  width: 70%;
+}
+
+.analysisPageRight{
+  width: 20%;
+}
+
+
+
+
+
 
 
 
@@ -561,5 +623,32 @@ body{
   cursor: pointer;
   font-size: 30px;
 }
+
+
+
+
+
+/* MLMAP */
+
+.mlMapPage{
+  width: 90%;
+  display: flex;
+  justify-self:center;
+  flex-direction: column;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

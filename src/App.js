@@ -6,7 +6,7 @@ import Statistics from "./components/statistics/Statistics";
 import Settings from "./components/settings/Settings";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MlMap from "./components/MiMap/MiMap";
-import Register from "./components/auth/Register";
+
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<Auth />} />
-          <Route path="/register" element={<Register />} />
+
 
           <Route path="/mainPage" element={<MainPage />} />
           <Route path="/statistics" element={<Statistics />} />

@@ -66,8 +66,7 @@ function MainPage(){
                         </div>
                     </div>
                     <div className="mainPageBodyRightGraph">
-                        <h4>График: динамика нарушений по районам<br/> 
-                        (линии или гистограмма)</h4>
+                        <h4>Средняя месячная статистика Центрального района</h4>
                         <div className="mainPageBodyRightGraphDiv">
                             <Graph />
                         </div>

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import Navbar from "../navbar/Navbar";
 
 const MlMap = () => {
   const mapRef = useRef(null);
@@ -12,7 +13,7 @@ const MlMap = () => {
   useEffect(() => {
     if (!mapRef.current) return;
 
-    // 🧼 Clean up if map already exists on this DOM node
+
     if (mapRef.current._leaflet_map) {
       mapRef.current._leaflet_map.remove();
     }
@@ -22,7 +23,7 @@ const MlMap = () => {
       attribution: "&copy; OpenStreetMap contributors",
     }).addTo(map);
 
-    mapRef.current._leaflet_map = map; // Save it so we don’t double-init
+    mapRef.current._leaflet_map = map; 
     setMapInstance(map);
   }, []);
 
@@ -77,7 +78,7 @@ const MlMap = () => {
       if (!address || isNaN(value)) return;
 
       const coords = await geocode(address);
-      if (!coords || !mapInstance || !mapRef.current) return; // ✅ extra safety
+      if (!coords || !mapInstance || !mapRef.current) return; 
 
       const color = value < 3000 ? "green" : "red";
 
@@ -97,17 +98,20 @@ const MlMap = () => {
     });
   });
   return (
-    <div style={{ height: "100vh" }}>
-      <select
-        value={selectedMonth}
-        onChange={(e) => setSelectedMonth(e.target.value)}
-        style={{ position: "absolute", zIndex: 1000, margin: "10px" }}>
-        <option value="cons_jan">Январь</option>
-        <option value="cons_feb">Февраль</option>
-        <option value="cons_mar">Март</option>
-        {/* Add more months */}
-      </select>
-      <div ref={mapRef} id="map" style={{ height: "100%" }} />
+    <div className="mlMapPage">
+      <Navbar />
+      <div style={{ height: "80vh" }}>
+        <select
+          value={selectedMonth}
+          onChange={(e) => setSelectedMonth(e.target.value)}
+          style={{ position: "absolute", zIndex: 1000, margin: "10px" }}>
+          <option value="cons_jan">Январь</option>
+          <option value="cons_feb">Февраль</option>
+          <option value="cons_mar">Март</option>
+          {/* Add more months */}
+        </select>
+        <div ref={mapRef} id="map" style={{ height: "100%" }} />
+      </div>
     </div>
   );
 
@@ -116,11 +120,11 @@ const MlMap = () => {
     if (geoCache[address]) return geoCache[address];
 
     const fallback = address
-      .replace(/ул[^,]*/, "") // remove street
-      .replace(/д\.[^,]*/, "") // remove house number
-      .replace(/\s+/g, " ") // clean double spaces
+      .replace(/ул[^,]*/, "")
+      .replace(/д\.[^,]*/, "")
+      .replace(/\s+/g, " ") 
       .trim()
-      .replace(/,+$/, ""); // clean trailing commas
+      .replace(/,+$/, ""); 
 
     const tryAddresses = [address, fallback];
 

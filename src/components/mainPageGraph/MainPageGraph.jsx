@@ -4,15 +4,15 @@ import {
 } from 'recharts';
 
 const data = [
-  { value: 81, percent: '8.0%' },
-  { value: 58, percent: '12.9%' },
-  { value: 47, percent: '10.4%' },
-  { value: 95, percent: '21.1%' },
-  { value: 4,  percent: '0.9%' },
-  { value: 40, percent: '8.9%' },
-  { value: 12, percent: '2.7%' },
-  { value: 90, percent: '20.0%' },
-  { value: 23, percent: '5.1%' },
+  { value: 3300, percent: '8.0%' },
+  { value: 2600, percent: '12.9%' },
+  { value: 2700, percent: '10.4%' },
+  { value: 3400, percent: '21.1%' },
+  { value: 2500,  percent: '0.9%' },
+  { value: 3900, percent: '8.9%' },
+  { value: 3100, percent: '2.7%' },
+  { value: 3000, percent: '20.0%' },
+  { value: 1800, percent: '5.1%' },
 ];
 
 const CustomXAxisTick = ({ x, y, payload }) => {
@@ -58,7 +58,7 @@ export default function CustomBarChart() {
           <XAxis dataKey="value" tick={<CustomXAxisTick />} interval={0} axisLine={false} tickLine={false} />
           <YAxis axisLine={false} tickLine={false} />
           <Tooltip content={<CustomTooltip />} />
-          <Bar dataKey="value" fill="#007bff" barSize={15} radius={[10, 10, 0, 0]}>
+          <Bar dataKey="value" fill="#8979FF" barSize={40} radius={[20, 20, 0, 0]}>
             {
               data.map((_, index) => (
                 <Cell key={`cell-${index}`} />

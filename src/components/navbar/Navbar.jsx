@@ -104,8 +104,8 @@ function Navbar() {
                     Статистика
                 </li>
                 <li 
-                    className={getActiveClass('/consumption-map')} 
-                    onClick={() => navigate('/consumption-map')}
+                    className={getActiveClass('/MlMap')} 
+                    onClick={() => navigate('/MlMap')}
                 >
                     Карта потребления
                 </li>

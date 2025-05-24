@@ -45,7 +45,7 @@ export default function HourlyEnergyChart() {
               <XAxis dataKey="hour" tickLine={false} axisLine={false} angle={-45} textAnchor="end" height={50} />
               <YAxis tickLine={false} axisLine={false} tickFormatter={(v) => v.toLocaleString()} />
               <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(0,0,0,0.05)' }} />
-              <Bar dataKey="value" fill="#7A8BFF" barSize={20} radius={[10, 10, 0, 0]} />
+              <Bar dataKey="value" fill="#7A8BFF" barSize={30} radius={[20, 20, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
