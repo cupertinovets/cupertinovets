@@ -20,7 +20,8 @@ const Analysis = () => {
         {/*!!!!!!!!!*/}               <div><p>Email</p>   <label>mail@mail.com</label>   </div>
         {/*!!!!!!!!!*/}               <div><p>Телефон</p>   <label>+7 (904) 245-45-45</label>   </div>
                     </div>
-                </div>
+                </div> 
+                
                 <div className='analysisPageDown'>
                     <div>
                         <h3>Дополнительная информация</h3>
