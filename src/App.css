@@ -591,7 +591,6 @@ body{
 
 
 
-
 /* SETTINGS */
 
 .settingsPage{
@@ -642,7 +641,8 @@ body{
 }
 
 .suspiciousTable {
-  width: 100%;
+  width: 90%;
+
   border-collapse: collapse;
 }
 
