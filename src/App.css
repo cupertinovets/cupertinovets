@@ -637,7 +637,21 @@ body{
   flex-direction: column;
 }
 
+.suspiciousTableWrapper {
+  margin: 20px 0;
+}
 
+.suspiciousTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.suspiciousTable th,
+.suspiciousTable td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
 
 
 
