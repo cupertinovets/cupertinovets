@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ML Results</title>
+  <style>
+    body { font-family: sans-serif; background: #111; color: #eee; padding: 2rem }
+    button { margin: 1rem 0; padding: 10px 20px; font-size: 16px }
+    table { border-collapse: collapse; width: 100%; margin-top: 1rem }
+    th, td { border: 1px solid #444; padding: 6px; text-align: left }
+  </style>
+</head>
+<body>
+  <h1>📈 ML Prediction Results</h1>
+  <button id="runBtn">⚙️ Run ML Prediction</button>
+  <div id="msg"></div>
+  <table id="resultsTable"></table>
+
+  <script>
+    const msg = document.getElementById('msg')
+    const table = document.getElementById('resultsTable')
+    const btn = document.getElementById('runBtn')
+
+    btn.onclick = async () => {
+      msg.innerText = '⏳ Running ML...'
+      const res = await fetch('/trigger-ml')
+      const result = await res.json()
+      msg.innerText = result.status === 'ok'
+        ? `Done! Fetched ${result.inserted} row(s)`
+        : `Error: ${result.error}`
+
+      loadResults()
+    }
+
+    async function loadResults() {
+      const res = await fetch('/ml-result')
+      const rows = await res.json()
+      if (!Array.isArray(rows) || rows.length === 0) {
+        table.innerHTML = '<tr><td>No data yet</td></tr>'
+        return
+      }
+
+      const cols = Object.keys(rows[0])
+      const thead = `<tr>${cols.map(c => `<th>${c}</th>`).join('')}</tr>`
+      const tbody = rows.map(row =>
+        `<tr>${cols.map(c => `<td>${row[c]}</td>`).join('')}</tr>`
+      ).join('')
+      table.innerHTML = thead + tbody
+    }
+
+    loadResults()
+  </script>
+</body>
+</html>

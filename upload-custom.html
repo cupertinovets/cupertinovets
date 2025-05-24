@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload to Custom Table</title>
+  <style>
+    body { font-family: sans-serif; background: #111; color: #eee; padding: 2rem }
+    input, button { margin-top: 1rem; }
+    table { margin-top: 2rem; border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #444; padding: 6px; }
+    .success { color: limegreen }
+    .error { color: red }
+  </style>
+</head>
+<body>
+  <h1>📤 Upload CSV/XLSX to <code>custom_upload</code></h1>
+  <form id="uploadForm">
+    <input type="file" name="file" required />
+    <br/>
+    <button type="submit">Upload</button>
+  </form>
+
+  <div id="message"></div>
+  <table id="previewTable"></table>
+
+  <script>
+    const form = document.getElementById('uploadForm')
+    const msg = document.getElementById('message')
+    const preview = document.getElementById('previewTable')
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault()
+      const formData = new FormData(form)
+      const res = await fetch('/upload-custom', {
+        method: 'POST',
+        body: formData
+      })
+      const data = await res.json()
+      preview.innerHTML = ''
+      msg.innerHTML = ''
+
+      if (data.error) {
+        msg.innerHTML = `<p class="error">${data.error}</p>`
+        return
+      }
+
+      msg.innerHTML = `<p class="success">✅ Imported ${data.preview.length} row(s)</p>`
+
+      if (data.preview.length > 0) {
+        const cols = Object.keys(data.preview[0])
+        const thead = `<tr>${cols.map(c => `<th>${c}</th>`).join('')}</tr>`
+        const tbody = data.preview.map(row =>
+          `<tr>${cols.map(c => `<td>${row[c]}</td>`).join('')}</tr>`
+        ).join('')
+        preview.innerHTML = thead + tbody
+      }
+    })
+  </script>
+</body>
+</html>
