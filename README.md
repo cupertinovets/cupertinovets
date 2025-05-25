@@ -7,8 +7,8 @@ It implements a full-fledged ML pipeline based on deep and ensemble modeling mod
 ---
 
 ### **Pipeline Overview**
-1. **GRU TS Imputation (Torch):**
-   - A compact bidirectional GRU network learns from historical monthly consumption data.
+1. **Torch TS Imputation:**
+   - A compact bidirectional `GRU network` learns from historical monthly consumption data.
    - Predicts missing consumption values by capturing both seasonal patterns and long-term trends.
    - Trains quickly and remains robust on small datasets—ideal for local or rare-case scenarios.
 
@@ -20,7 +20,7 @@ It implements a full-fledged ML pipeline based on deep and ensemble modeling mod
    - Enhances model expressiveness and generalization by uncovering hidden patterns.
 
 3. **Boosting Classifier:**
-   - Hyperparameters are optimized via Optuna, with early stopping and balanced class weights.
+   - Hyperparameters are optimized with `Optuna`, with early stopping and balanced class weights.
    - Delivers high accuracy and stable performance with reasonable training and inference times.
 
 ### **Bonus Feature**
