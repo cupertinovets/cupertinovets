@@ -6,7 +6,7 @@ import StreetPieChart from "../graphStatisticsThird/GraphStatisticsSecond";
 import Analysis from "../analysis/Analysis";
 
 function Statistics() {
-  const [activeGraph, setActiveGraph] = useState("graph5");
+  const [activeGraph, setActiveGraph] = useState("graph4");
   const [mlData, setMlData] = useState([]);
   const [selectedRows, setSelectedRows] = useState([]);
 
@@ -26,20 +26,36 @@ function Statistics() {
       label: "Месячная статистика",
       component: <StreetPieChart />,
     },
-    {
-      id: "graph4",
-      label: "Подозрительная активность",
-      component: null,
-    },
+    { id: "graph4", label: "Подозрительная активность", component: null },
     { id: "graph5", label: "Анализ абонентов", component: <Analysis /> },
   ];
+
+  const getBuildingType = (code) => {
+    switch (parseInt(code)) {
+      case 0:
+        return "Гараж";
+      case 1:
+        return "Дача";
+      case 2:
+        return "Многоквартирный";
+      case 3:
+        return "Прочий";
+      case 5:
+        return "Частный";
+      default:
+        return "Неизвестно";
+    }
+  };
 
   useEffect(() => {
     if (activeGraph !== "graph4") return;
 
     fetch("http://176.113.83.14:3000/ml-result")
       .then((res) => res.json())
-      .then((data) => setMlData(data))
+      .then((data) => {
+        const filtered = data.filter((row) => row.commercial == 1);
+        setMlData(filtered);
+      })
       .catch((err) => console.error("ML data fetch error:", err));
   }, [activeGraph]);
 
@@ -62,6 +78,7 @@ function Statistics() {
             ))}
           </ul>
         </div>
+
         {activeGraph === "graph4" && (
           <div className="suspiciousTableWrapper">
             <h3>Подозрительная активность в Центральном районе</h3>
@@ -105,10 +122,10 @@ function Statistics() {
                       <td>{row.id}</td>
                       <td>{row.address}</td>
                       <td>{row.residents_count}</td>
-                      <td>{row.building_type}</td>
-                      <td>{row.month_stat}</td>
-                      <td>{row.volume}</td>
-                      <td>{row.probability}</td>
+                      <td>{getBuildingType(row.building_type)}</td>
+                      <td>{parseFloat(row.cons_avg).toFixed(1)}</td>
+                      <td>{row.cons_total}</td>
+                      <td>{row.confidence}</td>
                     </tr>
                   ))}
                 </tbody>
