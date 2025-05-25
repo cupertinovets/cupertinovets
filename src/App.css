@@ -526,6 +526,11 @@ body{
     padding: 20px;
 }
 
+.analysisPage{
+  height: 75vh;
+  display: flex;
+  flex-flow: column;
+}
 
 .analysisPageTop{
   width: 65%;
@@ -568,6 +573,7 @@ body{
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
+  height: 20vh;
 }
 
 .analysisPageInf div{
@@ -575,10 +581,61 @@ body{
   justify-content: space-between;
   width: 42%;
   align-items: center;
+  height: 50%;
+}
+
+.analysisPageInf div p{
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.analysisPageInf div label{
+  width: 75%;
+  font-weight: 600;
 }
 
 .analysisPageLeft{
   width: 70%;
+  height: 10%;
+}
+
+.LinksItem{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 60%;
+  font-weight: 700;
+}
+
+.analysisPageLinks div a{
+  font-size: 12px;
+  margin-left: 20px;
+  font-weight: 600;
+  color: #23538F;
+}
+
+.analysisPageBtn{
+  padding: 1% 10%;
+  background: #23538F;
+  border: 0;
+  border-radius: 20px;
+  color: white;
+  font-size: 32px;
+  font-weight: 400;
+}
+
+
+
+
+
+
+
+
+
+
+
+.analysisPageLeft h3{
+  color: #23538F;
 }
 
 .analysisPageRight{

@@ -27,18 +27,18 @@ const Analysis = () => {
           <div>
             <h3>Личная информация</h3>
             <div className="analysisPageInf">
-              {" "}
+              
               <div>
-                <p>ID</p> <label>{userData?.id || "—"}</label>{" "}
-              </div>{" "}
+                <p>ID</p> <label>{userData?.id || "—"}</label>
+              </div>
               <div>
-                <p>Адрес</p> <label>{userData?.address || "—"}</label>{" "}
-              </div>{" "}
+                <p>Адрес</p> <label>{userData?.address || "—"}</label>
+              </div>
               <div>
-                <p>Email</p> <label>mail@mail.com</label>{" "}
-              </div>{" "}
+                <p>Email</p> <label>mail@mail.com</label>
+              </div>
               <div>
-                <p>Телефон</p> <label>+7 (904) 245-45-45</label>{" "}
+                <p>Телефон</p> <label>+7 (904) 245-45-45</label>
               </div>
             </div>
           </div>
@@ -47,25 +47,37 @@ const Analysis = () => {
             <div>
               <h3>Дополнительная информация</h3>
               <div className="analysisPageLinks">
-                <div>
-                  <p>2gis</p> <label>Найдена 1 ссылка</label>
-                  <a>Подробнее...</a>
+                <div className="LinksItem">
+                  <p>2gis</p> 
+                  <div>
+                    <label>Найдена 1 ссылка</label>
+                    <a>Подробнее...</a>
+                  </div>    
                 </div>
-                <div>
-                  <p>YandexMaps</p> <label>Найдена 1 ссылка</label>
-                  <a>Подробнее...</a>
+                <div className="LinksItem">
+                  <p>YandexMaps</p> 
+                  <div>
+                    <label>Найдена 1 ссылка</label>
+                    <a>Подробнее...</a>
+                  </div>
                 </div>
-                <div>
-                  <p>Avito</p> <label>Найдена 1 ссылка</label>
-                  <a>Подробнее...</a>
+                <div className="LinksItem">
+                  <p>Avito</p> 
+                  <div>
+                    <label>Найдена 1 ссылка</label>
+                    <a>Подробнее...</a>
+                  </div>
                 </div>
-                <div>
-                  <p>VK</p> <label>Найдена 1 ссылка</label>
-                  <a>Подробнее...</a>
+                <div className="LinksItem">
+                  <p>VK</p> 
+                  <div>
+                    <label>Найдена 1 ссылка</label>
+                    <a>Подробнее...</a>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="analysisPagePhoro">PHOTO</div>
+            <button className="analysisPageBtn">Отслеживать</button>
           </div>
         </div>
         <div className="analysisPageRight">
