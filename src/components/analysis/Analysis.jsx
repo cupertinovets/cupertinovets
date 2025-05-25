@@ -7,14 +7,20 @@ const Analysis = () => {
   const [suggestions, setSuggestions] = useState([]);
 
   useEffect(() => {
-    const raw = localStorage.getItem("mlMapData");
-    if (raw) {
-      const parsed = JSON.parse(raw);
-      setMlData(parsed);
-      if (parsed.length > 0) {
-        setUserData(parsed[0]);
-      }
-    }
+    // get full dataset
+    fetch("http://176.113.83.14:3000/ml-result")
+      .then((res) => res.json())
+      .then((data) => {
+        setMlData(data);
+        const raw = localStorage.getItem("mlMapData");
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (parsed.length > 0) {
+            setUserData(parsed[0]);
+          }
+        }
+      })
+      .catch((err) => console.error("Failed to fetch ml-result:", err));
   }, []);
 
   return (
@@ -30,9 +36,11 @@ const Analysis = () => {
               setQuery(value);
               setSuggestions(
                 value.length > 1
-                  ? mlData.filter((item) =>
-                      item.address.toLowerCase().includes(value.toLowerCase())
-                    )
+                  ? mlData
+                      .filter((item) =>
+                        item.address.toLowerCase().includes(value.toLowerCase())
+                      )
+                      .slice(0, 10)
                   : []
               );
             }}
@@ -41,12 +49,16 @@ const Analysis = () => {
             type="submit"
             onClick={() => {
               const match = mlData.find(
-                (row) => row.address.toLowerCase() === query.toLowerCase()
+                (row) =>
+                  row.address.toLowerCase().trim() ===
+                  query.toLowerCase().trim()
               );
               if (match) {
                 setUserData(match);
-                setSuggestions([]);
+              } else {
+                alert("Адрес не найден");
               }
+              setSuggestions([]);
             }}>
             Найти
           </button>

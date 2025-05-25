@@ -656,7 +656,10 @@ body{
 }
 
 
-
+.location-input{
+  height: 40px;
+  margin-bottom: 5px;
+}
 
 .analysisPageLeft h3{
   color: #23538F;
@@ -727,6 +730,7 @@ body{
   border-radius: 20px; 
   cursor: pointer;
   font-size: 30px;
+  margin-left: 15px;
 }
 
 

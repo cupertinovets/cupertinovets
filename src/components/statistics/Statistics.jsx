@@ -50,10 +50,18 @@ function Statistics() {
   useEffect(() => {
     if (activeGraph !== "graph4") return;
 
+    const userLocation = localStorage.getItem("userLocation") || "";
+
     fetch("http://176.113.83.14:3000/ml-result")
       .then((res) => res.json())
       .then((data) => {
-        const filtered = data.filter((row) => row.commercial == 1);
+        const filtered = data
+          .filter((row) => {
+            const rowLoc = (row.location || "").toLowerCase().trim();
+            const userLoc = userLocation.toLowerCase().trim();
+            return row.commercial == 1 && rowLoc.startsWith(userLoc);
+          })
+          .sort((a, b) => parseFloat(b.confidence) - parseFloat(a.confidence));
         setMlData(filtered);
       })
       .catch((err) => console.error("ML data fetch error:", err));
