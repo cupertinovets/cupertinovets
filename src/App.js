@@ -6,6 +6,7 @@ import Statistics from "./components/statistics/Statistics";
 import Settings from "./components/settings/Settings";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MlMap from "./components/MiMap/MiMap";
+import ExportData from "./components/reports/Reports";
 
 
 function App() {
@@ -17,9 +18,11 @@ function App() {
 
 
           <Route path="/mainPage" element={<MainPage />} />
+          <Route path="/mlmap" element={<MlMap />} />
           <Route path="/statistics" element={<Statistics />} />
           <Route path="/settings" element={<Settings />} />
-          <Route path="/mlmap" element={<MlMap />} />
+          <Route path="/reports" element={<ExportData />} />
+
         </Routes>
       </div>
     </Router>
