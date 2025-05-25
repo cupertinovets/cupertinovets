@@ -51,21 +51,21 @@ const Analysis = () => {
                   <p>2gis</p> 
                   <div>
                     <label>Найдена 1 ссылка</label>
-                    <a>Подробнее...</a>
+                    <a href="/mainPage">Подробнее...</a>
                   </div>    
                 </div>
                 <div className="LinksItem">
                   <p>YandexMaps</p> 
                   <div>
                     <label>Найдена 1 ссылка</label>
-                    <a>Подробнее...</a>
+                    <a href="/mainPage">Подробнее...</a>
                   </div>
                 </div>
                 <div className="LinksItem">
                   <p>Avito</p> 
                   <div>
                     <label>Найдена 1 ссылка</label>
-                    <a>Подробнее...</a>
+                    <a href="/mainPage">Подробнее...</a>
                   </div>
                 </div>
                 <div className="LinksItem">
@@ -81,29 +81,35 @@ const Analysis = () => {
           </div>
         </div>
         <div className="analysisPageRight">
-          <div className="analysisAVG">
-            <p>Среднее потребление в месяц</p>
-            <label>1.27</label>
-            <div className="SupSubA">
-              <sup>МВт</sup>
-              <sub>ч/сутки</sub>
+          <div className="analysisPageRight1">
+            <div className="analysisAVG">
+              <p>Среднее потребление в месяц</p>
+              <label>1.27</label>
+              <div className="SupSubA">
+                <sup>МВт</sup>
+                <sub>ч/сутки</sub>
+              </div>
+            </div>
+            <div className="analysisAVG">
+              <p>Среднее потребление в месяц</p>
+              <label>1.27</label>
+              <div className="SupSubA">
+                <sup>МВт</sup>
+                <sub>ч/сутки</sub>
+              </div>
+            </div>
+            <div className="analysisAVG">
+              <p>Среднее потребление в месяц</p>
+              <label>1.27</label>
+              <div className="SupSubA">
+                <sup>МВт</sup>
+                <sub>ч/сутки</sub>
+              </div>
             </div>
           </div>
-          <div className="analysisAVG">
-            <p>Среднее потребление в месяц</p>
-            <label>1.27</label>
-            <div className="SupSubA">
-              <sup>МВт</sup>
-              <sub>ч/сутки</sub>
-            </div>
-          </div>
-          <div className="analysisAVG">
-            <p>Среднее потребление в месяц</p>
-            <label>1.27</label>
-            <div className="SupSubA">
-              <sup>МВт</sup>
-              <sub>ч/сутки</sub>
-            </div>
+          <div className="analysisBTN">
+            <button>Посмотреть на карте</button>
+            <button>Сформировать отчет</button>
           </div>
         </div>
       </div>
