@@ -15,7 +15,7 @@ It implements a full-fledged ML pipeline based on deep and ensemble modeling mod
 2. **Advanced Feature Engineering:**
    - Generates time-based features such as:
      - `Fourier series` terms to model complex seasonal cycles;
-     - Moving averages and trend coefficients (`linear, quadratic, cubic`).
+     - Moving averages and trend coefficients (`cons_mean, diff1_mean, n_local_max`).
    - Adds aggregates like mean summer consumption to spot period-specific anomalies.
    - Enhances model expressiveness and generalization by uncovering hidden patterns.
 
