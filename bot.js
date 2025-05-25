@@ -31,9 +31,9 @@ bot.onText(/\/status/, (msg) => {
     if (err) return bot.sendMessage(chatId, `Error: ${err.message}`)
 
     const data = JSON.parse(stdout)
-    if (!Array.isArray(data)) return bot.sendMessage(chatId, '⚠️ Failed to parse pm2 output')
+    if (!Array.isArray(data)) return bot.sendMessage(chatId, 'Failed to parse pm2 output')
 
-    let reply = '📊 *PM2 Status:*\n\n'
+    let reply = '*PM2 Status:*\n\n'
     for (const proc of data) {
       reply += `*${proc.name}*  |  \`${proc.pm2_env.status}\`  |  🔁 ${proc.pm2_env.restart_time}x  |  🖥 ${proc.monit.cpu}% CPU  |  🧠 ${Math.round(proc.monit.memory / 1024 / 1024)}MB\n`
     }
