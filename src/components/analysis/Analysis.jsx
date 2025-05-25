@@ -72,35 +72,35 @@ const Analysis = () => {
                   <p>VK</p> 
                   <div>
                     <label>Найдена 1 ссылка</label>
-                    <a>Подробнее...</a>
+                    <a href="/mainPage">Подробнее...</a>
                   </div>
                 </div>
               </div>
             </div>
-            <button className="analysisPageBtn">Отслеживать</button>
+            <button className="analysisPageBtn">В избранное</button>
           </div>
         </div>
         <div className="analysisPageRight">
-          <div className="">
+          <div className="analysisAVG">
             <p>Среднее потребление в месяц</p>
             <label>1.27</label>
-            <div className="SupSub">
+            <div className="SupSubA">
               <sup>МВт</sup>
               <sub>ч/сутки</sub>
             </div>
           </div>
-          <div className="">
+          <div className="analysisAVG">
             <p>Среднее потребление в месяц</p>
             <label>1.27</label>
-            <div className="SupSub">
+            <div className="SupSubA">
               <sup>МВт</sup>
               <sub>ч/сутки</sub>
             </div>
           </div>
-          <div className="">
+          <div className="analysisAVG">
             <p>Среднее потребление в месяц</p>
             <label>1.27</label>
-            <div className="SupSub">
+            <div className="SupSubA">
               <sup>МВт</sup>
               <sub>ч/сутки</sub>
             </div>

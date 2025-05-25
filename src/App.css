@@ -624,12 +624,36 @@ body{
   font-weight: 400;
 }
 
+.analysisAVG{
+  border: 3px solid #23538F;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+}
 
+.analysisAVG p{
+  font-size: 16px;
+  font-weight: 600;
+}
 
+.analysisAVG label{
+  font-size: 40px;
+  color: #23538F;
+  font-family: "Qanelas";
+  font-weight: 10 00;
+}
 
+.SupSubA{
+  margin-left: 0px;
+  width: 50%;
+  font-weight: 600;
+  color: #23538F;
+}
 
-
-
+.SupSubA sub{
+  margin-left: -25px;
+}
 
 
 
@@ -640,6 +664,10 @@ body{
 
 .analysisPageRight{
   width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 60%;
 }
 
 
