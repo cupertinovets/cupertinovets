@@ -110,7 +110,7 @@ const MlMap = () => {
   async function geocodeYandex(address) {
     try {
       const res = await fetch(
-        `https://geocode-maps.yandex.ru/1.x/?format=json&apikey=2f6fb731-4e78-422f-984e-5182bc91df11&geocode=${encodeURIComponent(
+        `https://geocode-maps.yandex.ru/1.x/?format=json&apikey=01f48e43-929b-4be1-b910-a9dd112ec7dd&geocode=${encodeURIComponent(
           address
         )}`
       );
@@ -132,7 +132,7 @@ const MlMap = () => {
     <div className="mlMapPage">
       <Navbar />
       <div style={{ height: "80vh" }}>
-        <YMaps query={{ apikey: "2f6fb731-4e78-422f-984e-5182bc91df11" }}>
+        <YMaps query={{ apikey: "01f48e43-929b-4be1-b910-a9dd112ec7dd" }}>
           <Map
             defaultState={{ center: [55.75, 37.61], zoom: 6 }}
             width="100%"
